@@ -1,0 +1,6 @@
+lightgbm==2.1.2
+numpy==1.17.1
+scikit-learn==0.21.3
+joblib==0.13.2
+pytest==3.10.1
+fasttext==0.9.1
