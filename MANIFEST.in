@@ -1,6 +1,7 @@
 include LICENSE
 include README.md
-include requirements.txtdocker/Dockerfile
+include requirements.txt
+docker/Dockerfile
 include misc/stringsifter-flat-dark.png
 include stringsifter/model/ranker.pkl
 include stringsifter/model/featurizer.pkl
