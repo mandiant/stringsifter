@@ -1,10 +1,9 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+# Copyright (C) 2019 FireEye, Inc. All Rights Reserved.
 
 from distutils.core import setup
 import os
 
-_version = '0.20190905-2'
+_version = '0.20190907'
 __all__ = ['metadata', 'setup']
 
 # Get the base directory
@@ -24,13 +23,11 @@ except FileNotFoundError:
 
 # requirements.  we use requirements.txt for the Docker build,
 # so import it here
-requirements = """lightgbm==2.1.2
-numpy==1.17.1
-scikit-learn==0.21.3
-joblib==0.13.2
-pytest==3.10.1
-fasttext==0.9.1""".split('\n')
-
+reqsfile = os.path.join(here, 'requirements.txt')
+with open(reqsfile, 'r') as fid:
+    requirements = fid.readlines()
+requirements = [r.strip() for r in requirements]
+requirements = [r for r in requirements if r and not r.startswith('#')]
 
 # Get the list of scripts
 scripts = []
@@ -39,7 +36,6 @@ _packages = ['stringsifter', 'stringsifter/lib']
 
 # Set the parameters for the setup script
 metadata = {
-
     # Setup instructions
     'provides': ['stringsifter'],
     'packages': _packages,
@@ -49,7 +45,7 @@ metadata = {
                             'flarestrings=stringsifter.flarestrings:main']
     },
     'install_requires': requirements,
-    'python_requires': '>3.6',
+    'python_requires': '>=3.6',
     # Metadata
     'name': 'stringsifter',
     'version': _version,
