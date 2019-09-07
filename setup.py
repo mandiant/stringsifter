@@ -12,14 +12,9 @@ if not here:
     here = os.path.curdir
 
 # Text describing the module
-try:
-    readme = os.path.join(here, 'README.md')
-    with open(readme, 'r') as fid:
-        long_description = fid.read()
-except FileNotFoundError:
-    long_description = 'stringsifter is a machine learning-based tool ' + \
-                       'that automatically ranks the output of the ' + \
-                       '`strings` program for binary triage analysis.'
+long_description = 'stringsifter is a machine learning-based tool ' + \
+                   'that automatically ranks the output of the ' + \
+                   '`strings` program for binary triage analysis.'
 
 # requirements.  we use requirements.txt for the Docker build,
 # so import it here
@@ -34,11 +29,17 @@ scripts = []
 
 _packages = ['stringsifter', 'stringsifter/lib']
 
+_package_data = {'stringsifter': ['model/*.pkl',
+                                  'lib/*.pkl',
+                                  'lib/*.ftz',
+                                  'lib/*.json']}
+
 # Set the parameters for the setup script
 metadata = {
     # Setup instructions
     'provides': ['stringsifter'],
     'packages': _packages,
+    'package_data': _package_data,
     'scripts': scripts,
     'entry_points': {
         'console_scripts': ['rank_strings=stringsifter.rank_strings:argmain',
