@@ -28,7 +28,7 @@ def main(input_strings, cutoff, cutoff_score, scores, batch):
 
     if not batch:
         strings = numpy.array([line.strip() for line in
-                               input_strings.readlines()])
+                               input_strings.readlines()], dtype=object)
 
         if len(strings) < 1:
             raise ValueError("No strings found within input.")
