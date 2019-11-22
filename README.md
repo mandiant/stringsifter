@@ -9,7 +9,7 @@ StringSifter is a machine learning tool that automatically ranks strings based o
 # Quick Links
 * [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.fireeye.com/blog/threat-research/2019/05/learning-to-rank-strings-output-for-speedier-malware-analysis.html)
 * [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.fireeye.com/blog/threat-research/2019/09/open-sourcing-stringsifter.html)
-* [DerbyCon Talk - *StringSifter: Learning to Rank Strings Output for Speedier Malware Analysis*](https://docs.google.com/spreadsheets/d/1zgI0grAFNQJEtelIudSCZ1A00XcunMCubVK5RCg0VIo/edit#gid=0)
+* [DerbyCon Talk - *StringSifter: Learning to Rank Strings Output for Speedier Malware Analysis*](https://youtu.be/pLiaVzOMJSk)
 
 # Usage
 
