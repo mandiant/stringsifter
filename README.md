@@ -96,7 +96,7 @@ $PY2_VENV/bin/floss –q <options> <my_sample> | rank_strings <options>
 Notes:
 1. The `–q` argument suppresses headers and formatting to show only extracted strings. To learn more about additional FLOSS options, please see its [Usage Docs](https://github.com/fireeye/flare-floss/blob/master/doc/usage.md).
 2. FLOSS requires Python 2, while StringSifter requires Python 3.  In the example command at least one of `floss` or `rank_strings` must include a relative path referencing a python virtual enviroment.
-
+3. FLOSS can be downloaded as a [standalone executable](https://github.com/fireeye/flare-floss/releases). In this case it is not required to specify a Python environment because the executable does not rely on a Python interpreter.
 
 ## Notes on running `strings`
 
