@@ -3,7 +3,7 @@
 from distutils.core import setup
 import os
 
-_version = '0.20190907'
+_version = '0.20191202'
 __all__ = ['metadata', 'setup']
 
 # Get the base directory
