@@ -1,6 +1,6 @@
 # Copyright (C) 2019 FireEye, Inc. All Rights Reserved.
 
-from distutils.core import setup
+from setuptools import setup
 import os
 
 _version = '0.20191202'
