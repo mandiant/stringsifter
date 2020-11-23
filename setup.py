@@ -2,6 +2,7 @@
 
 from setuptools import setup
 import os
+import re
 
 _version = '0.20191202'
 __all__ = ['metadata', 'setup']
@@ -16,13 +17,23 @@ long_description = 'stringsifter is a machine learning-based tool ' + \
                    'that automatically ranks the output of the ' + \
                    '`strings` program for binary triage analysis.'
 
-# requirements.  we use requirements.txt for the Docker build,
-# so import it here
-reqsfile = os.path.join(here, 'requirements.txt')
+# Do some Pipfile parsing to avoid two copies of the requirements,
+# but this is fragile
+reqsfile = os.path.join(here, 'Pipfile')
+requirements = []
 with open(reqsfile, 'r') as fid:
-    requirements = fid.readlines()
-requirements = [r.strip() for r in requirements]
-requirements = [r for r in requirements if r and not r.startswith('#')]
+    in_packages_section = False
+    for line in fid.readlines():
+        if line.startswith('['):
+            in_packages_section = line.rstrip() == '[packages]'
+            continue
+        if in_packages_section:
+            m = re.match(r'([\w-]+) *= *"(.*)"', line)
+            if m:
+                if m.group(2) == '*':
+                    requirements.append(m.group(1))
+                else:
+                    requirements.append(m.group(1) + m.group(2))
 
 # Get the list of scripts
 scripts = []
@@ -46,7 +57,7 @@ metadata = {
                             'flarestrings=stringsifter.flarestrings:main']
     },
     'install_requires': requirements,
-    'python_requires': '>=3.6',
+    'python_requires': '>=3.6,<3.8',
     # Metadata
     'name': 'stringsifter',
     'version': _version,
