@@ -9,8 +9,10 @@ import argparse
 
 if __package__ is None or __package__ == "":
     from lib import util
+    from version import __version__
 else:
     from .lib import util
+    from .version import __version__
 
 
 def is_valid_dir(parser, arg):
@@ -113,6 +115,7 @@ def argmain():
     parser.add_argument(
         "input_strings", nargs="?", type=argparse.FileType("r"),
         default=sys.stdin, help="Read input strings from stdin")
+    parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument(
         '--scores', '-s', action='store_true',
         help="display rank scores within output  \

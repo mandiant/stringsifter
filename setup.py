@@ -4,7 +4,6 @@ from setuptools import setup
 import os
 import re
 
-_version = '0.20191202'
 __all__ = ['metadata', 'setup']
 
 # Get the base directory
@@ -16,6 +15,12 @@ if not here:
 long_description = 'stringsifter is a machine learning-based tool ' + \
                    'that automatically ranks the output of the ' + \
                    '`strings` program for binary triage analysis.'
+
+# Get the version
+versfile = os.path.join(here, 'stringsifter', 'version.py')
+_version = {}
+with open(versfile, 'r') as fid:
+    exec(fid.read(), _version)
 
 # Do some Pipfile parsing to avoid two copies of the requirements,
 # but this is fragile
@@ -60,7 +65,7 @@ metadata = {
     'python_requires': '>=3.6,<3.8',
     # Metadata
     'name': 'stringsifter',
-    'version': _version,
+    'version': _version['__version__'],
     'description': 'stringsifter is a machine learning-based tool that ' + \
                    'automatically ranks the output of the `strings` ' + \
                    'program for binary triage analysis.',

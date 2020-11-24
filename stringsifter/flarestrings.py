@@ -4,6 +4,11 @@ import re
 import sys
 import argparse
 
+if __package__ is None or __package__ == "":
+    from version import __version__
+else:
+    from .version import __version__
+
 ASCII_BYTE = b" !\"#\$%&\'\(\)\*\+,-\./0123456789:;<=>\?@ABCDEFGHIJKLMNOPQRSTUVWXYZ\[\]\^_`abcdefghijklmnopqrstuvwxyz\{\|\}\\\~\t"
 
 
@@ -13,6 +18,7 @@ def main():
     #   sys.stdin is in 'r' mode, not 'rb'
     parser.add_argument('files', nargs='*', type=argparse.FileType('rb'),
                         default=[sys.stdin.buffer], help='files to process, or pipe to stdin')
+    parser.add_argument('--version', action='version', version=__version__)
     parser.add_argument('-n', '--min-len', type=int, default=4,
                         help='Print sequences of characters that are at least ' +
                              'min-len characters long, instead of the default 4.')
