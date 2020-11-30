@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+lightgbm = "~= 2.1"
+numpy = "~= 1.17"
+scikit-learn = "== 0.21.3"
+joblib = ">=0.13.2,<0.17"
+fasttext = "*"
+
+[dev-packages]
+pytest = "*"
+setuptools = "*"
+twine = "*"
+wheel = "*"
+
+[requires]
+python_version = "3.7"
+
+[scripts]
+rank_strings = "python -m stringsifter.rank_strings"
+flarestrings = "python -m stringsifter.flarestrings"
+tests = "python -m pytest"
+build = "python setup.py sdist bdist_wheel"
+upload_test = "python -m twine upload --repository testpypi dist/*"
+upload = "python -m twine upload dist/*"

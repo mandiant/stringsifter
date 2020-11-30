@@ -22,11 +22,12 @@ Use `pip` to get running immediately:
 pip install stringsifter
 ```
 
-Alternatively, you can install an editable version locally using `git` and `pip`:
+For development, check out the correct branch for your Python version or stay on master for the latest supported version. Then use `pipenv`:
 ```sh
 git clone https://github.com/fireeye/stringsifter.git
 cd stringsifter
-pip install -e .
+git checkout python3.7 #Optional
+pipenv install --dev
 ```
 
 ## Running Unit Tests
@@ -34,12 +35,14 @@ pip install -e .
 To run unit tests from the StringSifter installation directory:
 
 ```sh
-pytest
+pipenv run tests
 ```
 
 ## Running from the Command Line
 
-The `pip install -e <repo>` command installs two runnable scripts `flarestrings` and `rank_strings` into your python environment. `flarestrings` mimics features of GNU binutils' `strings`, and `rank_strings` accepts piped input, for example:
+The `pip install` command installs two runnable scripts `flarestrings` and `rank_strings` into your python environment. When developing from source, use `pipenv run flarestrings` and `pipenv run rank_strings`.
+
+`flarestrings` mimics features of GNU binutils' `strings`, and `rank_strings` accepts piped input, for example:
 
 ```sh
 flarestrings <my_sample> | rank_strings
@@ -70,7 +73,11 @@ will print and rank only strings of length 8 or greater.
 ```sh
 docker build -t stringsifter -f docker/Dockerfile .
 ```
-- Run the container using the `-v` flag to expose a host directory to the container:
+- Run the container with `flarestrings` or `rank_strings` argument to use the respective command. The containerized commands can be used in pipelines:
+```sh
+cat <my_sample> | docker run -i stringsifter flarestrings | docker run -i stringsifter rank_strings
+```
+- Or, run the container without arguments to get a shell prompt, using the `-v` flag to expose a host directory to the container:
 ```sh
 docker run -v <my_malware>:/samples -it stringsifter
 ```
@@ -83,7 +90,7 @@ docker run -v $HOME/malware/binaries:/samples -it stringsifter
 flarestrings /samples/<my_sample> | rank_strings <options>
 ```
 
-All [command line arguments](#running-from-the-command-line) are supported in the containerized script.
+All [command line arguments](#running-from-the-command-line) are supported in the containerized scripts.
 
 ## Running on FLOSS Output
 

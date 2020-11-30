@@ -1,16 +1,11 @@
-FROM conda/miniconda3
+FROM python:3.7
+
+RUN pip install --upgrade pip pipenv
 
 WORKDIR /src/stringsifter
 COPY . /src/stringsifter
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    cmake \
-    build-essential \
-    gcc \
-    g++ \
-    less && \
-    conda update -n base -c defaults conda && \
-    pip install -r ./requirements.txt
-
+RUN pipenv install --system --deploy
 RUN pip install -e /src/stringsifter
+
+CMD [ "/bin/bash" ]

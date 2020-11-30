@@ -69,8 +69,7 @@ class Featurizer():
         fqdn_str = fqdn_base + r'(?:\W|$)'
         self.fqdn_strict_only_regex = re.compile(r'^' + fqdn_base + r'$', re.I)
         self.fqdn_regex = re.compile(fqdn_str, re.I)
-        self.email_valid = re.compile(
-            r'([a-z0-9_\.\-+]{1,256}@%s)' % fqdn_base, re.I)
+        self.email_valid = re.compile(r'([a-z0-9_\.\-+]{1,256}@%s)' % fqdn_base, re.I)
 
         _u8 = r'(?:[1-9]?\d|1\d\d|2[0-4]\d|25[0-5])'
         _ipv4pre = r'(?:[^\w.]|^)'
@@ -78,28 +77,28 @@ class Featurizer():
         ip_base = r'((?:%s\.){3}%s)' % (_u8, _u8)
         self.ip_regex = re.compile(_ipv4pre + ip_base + _ipv4suf)
 
-        svc_base = '(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?):[0-9]{1,5}'
+        svc_base = r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?):[0-9]{1,5}'
         self.svc_regex = re.compile(svc_base)
-        self.md5_only_regex = re.compile('^[A-Fa-f0-9]{32}$')
-        self.sha1_only_regex = re.compile('^[A-Fa-f0-9]{40}$')
-        self.sha256_only_regex = re.compile('^[A-Fa-f0-9]{64}$')
-        self.url_regex = re.compile('\w+://[^ \'"\t\n\r\f\v]+')
+        self.md5_only_regex = re.compile(r'^[A-Fa-f0-9]{32}$')
+        self.sha1_only_regex = re.compile(r'^[A-Fa-f0-9]{40}$')
+        self.sha256_only_regex = re.compile(r'^[A-Fa-f0-9]{64}$')
+        self.url_regex = re.compile(r'\w+://[^ \'"\t\n\r\f\v]+')
         self.pkcs_regex = re.compile(r'-----BEGIN ([a-zA-Z0-9 ]+)-----')
-        self.format_regex = re.compile('%[-|\+|#|0]?([\*|0-9])?(\.[\*|0-9])?[h|l|j|z|t|L]?[diuoxXfFeEgGaAcspn%]')
-        self.linefeed_regex = re.compile('\\\\n$')
-        self.path_regex = re.compile('[A-Z|a-z]\:\\\\[A-Za-z0-9]')
+        self.format_regex = re.compile(r'%[-|\+|#|0]?([\*|0-9])?(\.[\*|0-9])?[h|l|j|z|t|L]?[diuoxXfFeEgGaAcspn%]')
+        self.linefeed_regex = re.compile(r'\\\\n$')
+        self.path_regex = re.compile(r'[A-Z|a-z]\:\\\\[A-Za-z0-9]')
         self.pdb_regex = re.compile(r'\w+\.pdb\b')
-        self.guid_regex = re.compile('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89ab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}')
-        self.event_regex = re.compile('On(?!User|Board|Media|Global)(?:[A-Z][a-z]+)+')
-        self.keylogger_regex = re.compile('\[[A-Za-z0-9\_\-\+ ]{2,13}\]')
-        self.oid_regex = re.compile('((0\.([0-5]|9))|(1\.[0-3])|(2\.(([0-2][0-8])|(4[0-2])|(4[8-9])|(5[0-2])|(999))))(\.[0-9])+')
+        self.guid_regex = re.compile(r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89ab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}')
+        self.event_regex = re.compile(r'On(?!User|Board|Media|Global)(?:[A-Z][a-z]+)+')
+        self.keylogger_regex = re.compile(r'\[[A-Za-z0-9\_\-\+ ]{2,13}\]')
+        self.oid_regex = re.compile(r'((0\.([0-5]|9))|(1\.[0-3])|(2\.(([0-2][0-8])|(4[0-2])|(4[8-9])|(5[0-2])|(999))))(\.[0-9])+')
         self.ext_regex = re.compile(r'\w+\.[a-z]{3,4}\b')
-        self.prod_id_regex = re.compile('[0-9]{5}-[0-9A-Z]{3}-[0-9]{7}-[0-9]{5}')
-        self.priv_regex = re.compile('Se[A-Z][A-z]+Privilege')
-        self.sddl_regex = re.compile('[DSO]:.+;;;.+$')
-        self.sid_regex = re.compile('S-(?:[0-5]|9|(11)|(12)|(16))-')
-        self.whitespace_regex = re.compile('\s+')
-        self.letters_regex = re.compile('[^A-Za-z]')
+        self.prod_id_regex = re.compile(r'[0-9]{5}-[0-9A-Z]{3}-[0-9]{7}-[0-9]{5}')
+        self.priv_regex = re.compile(r'Se[A-Z][A-z]+Privilege')
+        self.sddl_regex = re.compile(r'[DSO]:.+;;;.+$')
+        self.sid_regex = re.compile(r'S-(?:[0-5]|9|(11)|(12)|(16))-')
+        self.whitespace_regex = re.compile(r'\s+')
+        self.letters_regex = re.compile(r'[^A-Za-z]')
         self.english_ignores = constants['windows api'].union(constants['pma important functions']).union\
                                (constants['dates']).union(constants['languages'])
         self.not_latin_unicode_names = ['ARABIC', 'SYRIAC', 'CYRILLIC', 'CJK', 'GEORGIAN']
