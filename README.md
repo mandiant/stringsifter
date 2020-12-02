@@ -10,6 +10,7 @@ StringSifter is a machine learning tool that automatically ranks strings based o
 * [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.fireeye.com/blog/threat-research/2019/05/learning-to-rank-strings-output-for-speedier-malware-analysis.html)
 * [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.fireeye.com/blog/threat-research/2019/09/open-sourcing-stringsifter.html)
 * [DerbyCon Talk - *StringSifter: Learning to Rank Strings Output for Speedier Malware Analysis*](https://youtu.be/pLiaVzOMJSk)
+* [StringSifter releases on PyPi](https://pypi.org/project/stringsifter/)
 
 # Usage
 
@@ -17,10 +18,12 @@ StringSifter requires Python version 3.6 or newer. Run the following commands to
 
 ## Installation
 
-Use `pip` to get running immediately:
-```sh
-pip install stringsifter
-```
+Use `pip` to get running immediately. Choose the major version corresponding to your version of python:
+
+| Python Version | Stringsifter Version | Branch    | Example Pip Command             |
+| -------------- | -------------------- | --------- | ------------------------------- |
+| 3.8+           | 2.x                  | master    | `pip install stringsifter~=2.0` |
+| 3.6, 3.7       | 1.x                  | python3.7 | `pip install stringsifter~=1.0` |
 
 For development, check out the correct branch for your Python version or stay on master for the latest supported version. Then use `pipenv`:
 ```sh
