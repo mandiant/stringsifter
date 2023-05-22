@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-lightgbm = "~= 3.1"
-numpy = "~= 1.17"
-scikit-learn = "== 0.23.2"
+numpy = ">1.17, <1.24"
+scikit-learn = "~= 0.23.2"
+lightgbm = "~= 3.1.0"
 joblib = ">=0.13.2,<0.17"
 fasttext = "*"
 
