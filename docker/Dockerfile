@@ -1,11 +1,9 @@
-FROM python:3.8
-
-RUN pip install --upgrade pip pipenv
+FROM python:3.9
 
 WORKDIR /src/stringsifter
 COPY . /src/stringsifter
 
-RUN pipenv install --system --deploy
+RUN pip install -r requirements.txt
 RUN pip install -e /src/stringsifter
 
 CMD [ "/bin/bash" ]
