@@ -14,23 +14,19 @@ StringSifter is a machine learning tool that automatically ranks strings based o
 
 # Usage
 
-StringSifter requires Python version 3.6 or newer. Run the following commands to get the code, run unit tests, and use the tool:
+StringSifter requires Python version 3.9 or newer. Run the following commands to get the code, run unit tests, and use the tool:
 
 ## Installation
 
-Use `pip` to get running immediately. Choose the major version corresponding to your version of python:
+```sh
+pip install stringsifter
+```
 
-| Python Version | Stringsifter Version | Branch    | Example Pip Command             |
-| -------------- | -------------------- | --------- | ------------------------------- |
-| 3.8+           | 2.x                  | master    | `pip install stringsifter~=2.0` |
-| 3.6, 3.7       | 1.x                  | python3.7 | `pip install stringsifter~=1.0` |
-
-For development, check out the correct branch for your Python version or stay on master for the latest supported version. Then use `pipenv`:
+For development, use [poetry](https://python-poetry.org/):
 ```sh
 git clone https://github.com/fireeye/stringsifter.git
 cd stringsifter
-git checkout python3.7 #Optional
-pipenv install --dev
+poetry install --with dev
 ```
 
 ## Running Unit Tests
@@ -38,7 +34,7 @@ pipenv install --dev
 To run unit tests from the StringSifter installation directory:
 
 ```sh
-pipenv run tests
+poetry run tests -v
 ```
 
 ## Running from the Command Line
