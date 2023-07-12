@@ -7,30 +7,26 @@
 StringSifter is a machine learning tool that automatically ranks strings based on their relevance for malware analysis.
 
 # Quick Links
-* [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.fireeye.com/blog/threat-research/2019/05/learning-to-rank-strings-output-for-speedier-malware-analysis.html)
-* [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.fireeye.com/blog/threat-research/2019/09/open-sourcing-stringsifter.html)
+* [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.mandiant.com/resources/blog/learning-rank-strings-output-speedier-malware-analysis)
+* [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.mandiant.com/resources/blog/open-sourcing-stringsifter)
 * [DerbyCon Talk - *StringSifter: Learning to Rank Strings Output for Speedier Malware Analysis*](https://youtu.be/pLiaVzOMJSk)
 * [StringSifter releases on PyPi](https://pypi.org/project/stringsifter/)
 
 # Usage
 
-StringSifter requires Python version 3.6 or newer. Run the following commands to get the code, run unit tests, and use the tool:
+StringSifter requires Python version 3.9 or newer. Run the following commands to get the code, run unit tests, and use the tool:
 
 ## Installation
 
-Use `pip` to get running immediately. Choose the major version corresponding to your version of python:
-
-| Python Version | Stringsifter Version | Branch    | Example Pip Command             |
-| -------------- | -------------------- | --------- | ------------------------------- |
-| 3.8+           | 2.x                  | master    | `pip install stringsifter~=2.0` |
-| 3.6, 3.7       | 1.x                  | python3.7 | `pip install stringsifter~=1.0` |
-
-For development, check out the correct branch for your Python version or stay on master for the latest supported version. Then use `pipenv`:
 ```sh
-git clone https://github.com/fireeye/stringsifter.git
+pip install stringsifter
+```
+
+For development, use [poetry](https://python-poetry.org/):
+```sh
+git clone https://github.com/mandiant/stringsifter.git
 cd stringsifter
-git checkout python3.7 #Optional
-pipenv install --dev
+poetry install --with dev
 ```
 
 ## Running Unit Tests
@@ -38,7 +34,7 @@ pipenv install --dev
 To run unit tests from the StringSifter installation directory:
 
 ```sh
-pipenv run tests
+poetry run tests -v
 ```
 
 ## Running from the Command Line
@@ -139,4 +135,4 @@ We use [GitHub Issues](https://github.com/fireeye/stringsifter/issues) for posti
 - Thanks to the FireEye Data Science (FDS) and FireEye Labs Reverse Engineering (FLARE) teams for review and feedback.
 - StringSifter was designed and developed by Philip Tully (FDS), Matthew Haigh (FLARE), Jay Gibble (FLARE), and Michael Sikorski (FLARE).
 - The StringSifter logo was designed by Josh Langner (FLARE).
-- `flarestrings` is derived from the excellent tool [FLOSS](https://github.com/fireeye/flare-floss/blob/master/floss/strings.py#L7-L9).
+- `flarestrings` is derived from the excellent tool [FLOSS](https://github.com/mandiant/flare-floss).

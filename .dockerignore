@@ -1,0 +1,11 @@
+.dockerignore
+.git
+.github
+gha-creds-*.json
+**/__pycache__
+.pytest_cache
+*.egg-info
+*.egg
+**/*.py[cod]
+build
+dist
