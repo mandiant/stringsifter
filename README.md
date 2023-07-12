@@ -7,8 +7,8 @@
 StringSifter is a machine learning tool that automatically ranks strings based on their relevance for malware analysis.
 
 # Quick Links
-* [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.fireeye.com/blog/threat-research/2019/05/learning-to-rank-strings-output-for-speedier-malware-analysis.html)
-* [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.fireeye.com/blog/threat-research/2019/09/open-sourcing-stringsifter.html)
+* [Technical Blogpost - *Learning to Rank Strings Output for Speedier Malware Analysis*](https://www.mandiant.com/resources/blog/learning-rank-strings-output-speedier-malware-analysis)
+* [Announcement Blogpost - *Open Sourcing StringSifter*](https://www.mandiant.com/resources/blog/open-sourcing-stringsifter)
 * [DerbyCon Talk - *StringSifter: Learning to Rank Strings Output for Speedier Malware Analysis*](https://youtu.be/pLiaVzOMJSk)
 * [StringSifter releases on PyPi](https://pypi.org/project/stringsifter/)
 
@@ -24,7 +24,7 @@ pip install stringsifter
 
 For development, use [poetry](https://python-poetry.org/):
 ```sh
-git clone https://github.com/fireeye/stringsifter.git
+git clone https://github.com/mandiant/stringsifter.git
 cd stringsifter
 poetry install --with dev
 ```
@@ -135,4 +135,4 @@ We use [GitHub Issues](https://github.com/fireeye/stringsifter/issues) for posti
 - Thanks to the FireEye Data Science (FDS) and FireEye Labs Reverse Engineering (FLARE) teams for review and feedback.
 - StringSifter was designed and developed by Philip Tully (FDS), Matthew Haigh (FLARE), Jay Gibble (FLARE), and Michael Sikorski (FLARE).
 - The StringSifter logo was designed by Josh Langner (FLARE).
-- `flarestrings` is derived from the excellent tool [FLOSS](https://github.com/fireeye/flare-floss/blob/master/floss/strings.py#L7-L9).
+- `flarestrings` is derived from the excellent tool [FLOSS](https://github.com/mandiant/flare-floss).
