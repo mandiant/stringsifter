@@ -16,12 +16,12 @@ include = [
 
 [tool.poetry.dependencies]
 python = '^3.9'
-lightgbm = "~= 3.1"
+lightgbm = ">= 4.6.0"
 scikit-learn = "~= 1.3.0"
 joblib = "~= 1.3.1"
 # Avoid "DeprecationWarning: np.find_common_type is deprecated"
 # https://numpy.org/devdocs/release/1.25.0-notes.html
-numpy = "== 1.24.4"
+numpy = "== 1.26.0"
 # Upstream fasttext does not work with newer pip versions
 # https://github.com/facebookresearch/fastText/issues/512
 #fasttext = {git = "https://github.com/cfculhane/fastText.git#main"}

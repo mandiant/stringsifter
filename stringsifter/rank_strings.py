@@ -28,6 +28,13 @@ def main(input_strings, cutoff, cutoff_score, scores, batch):
     featurizer = joblib.load(os.path.join(modeldir, "featurizer.pkl"))
     ranker = joblib.load(os.path.join(modeldir, "ranker.pkl"))
 
+    # Workaround for LGBMRanker compatibility with newer lightgbm versions
+    assert ranker.__class__.__name__ == "LGBMRanker"
+    if not hasattr(ranker, "importance_type"):
+        ranker.importance_type = "split"
+    if not hasattr(ranker, "_n_classes") or ranker._n_classes is None:
+        ranker._n_classes = 1
+
     if not batch:
         strings = numpy.array([line.strip() for line in
                                input_strings.readlines()], dtype=object)
