@@ -29,6 +29,7 @@ def main(input_strings, cutoff, cutoff_score, scores, batch):
     ranker = joblib.load(os.path.join(modeldir, "ranker.pkl"))
 
     # Workaround for LGBMRanker compatibility with newer lightgbm versions
+    assert ranker.__class__.__name__ == "LGBMRanker"
     if not hasattr(ranker, "importance_type"):
         ranker.importance_type = "split"
     if not hasattr(ranker, "_n_classes") or ranker._n_classes is None:
